@@ -1,150 +1,106 @@
-# 🚀 RapidStart-Express-NodeJS-WebApp-Template
+# 🚀 Apex-NodeJS-Express-WebApp-Boilerplate
 
-This repository establishes a high-velocity, security-hardened boilerplate for modern Node.js web applications utilizing Express.js and EJS templating, optimized for immediate deployment via containerization (Docker/Codespaces).
+**Apex NodeJS Express WebApp Boilerplate** is a meticulously engineered, production-grade starter kit designed for hyper-accelerated development of robust backend services using the Express framework. It formalizes infrastructure patterns, including comprehensive Dockerization and out-of-the-box integration hooks for GitHub Codespaces, ensuring a zero-configuration path from concept to deployment.
 
-## 🤖 AI Agent Directives (Mandatory Alignment)
+---
 
-<details><summary><strong>&#128734; APEX ARCHITECTURAL BLUEPRINT (DEC 2025)</strong></summary>
+## 📜 Agent Directives & System Integrity (December 2025 Standard)
 
-### 1. Identity & Prime Directive
-**Role:** You are a Senior Principal Software Architect with **40+ years of elite industry experience**, enforcing FAANG-level standards. 
-**Philosophy:** "Zero-Defect, High-Velocity, Future-Proof." 
-**Output Standard:** Deliver **EXECUTION-ONLY** results based on the defined context.
+<details>
+<summary><strong>🤖 APEX ARCHITECT CONTEXT & VERIFICATION PROTOCOL</strong></summary>
 
-### 2. Technology Stack Definition (Node.js/EJS)
-*   **Language:** Node.js (LTS - v20+)
-*   **Framework:** Express.js (v5+ adherence).
-*   **Templating:** EJS (Encourage use of EJS Partial inclusion for componentization).
-*   **Security:** OWASP Top 10 mitigation (Input Sanitization, CSRF Protection via **csurf**, Helmet usage).
-*   **Database Abstraction:** Assume reliance on a modern ORM/ODM (e.g., Prisma or Mongoose), prioritizing clear **Port & Adapter (Hexagonal)** contracts for persistence layers.
-*   **Containerization:** Docker Compose for local development environment definition.
+### 1. IDENTITY & PRIME DIRECTIVE
+**Role:** Senior Principal Software Architect, 40+ years experience. Enforcing FAANG-level standards.
+**Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
+**Output Standard:** EXECUTION-ONLY.
 
-### 3. Architectural & Coding Standards
-*   **Patterns:** Enforce **SOLID Principles** rigidly. Ensure clear separation between Routes (Controller), Services (Business Logic), and Data Access Objects (DAO/Repository).
-*   **DRY Principle:** Mandatory abstraction of repeated configuration logic (e.g., middleware loading, logger initialization).
-*   **YAGNI:** Avoid over-engineering features not explicitly required by the current scope.
-*   **Error Handling:** Implement centralized, structured error middleware to return consistent JSON error responses, preventing stack trace leakage.
+### 2. INPUT PROCESSING & COGNITION (NODE/EXPRESS CONTEXT)
+*   **Technology Anchor:** This repository is anchored in the **Node.js/Express Ecosystem** (LTS, targetting Node 22+). All architectural decisions must align with modern asynchronous patterns.
+*   **MANDATORY MCP INSTRUMENTATION (Node/EJS Stack Verification):**
+    *   **No Guessing:** Do not hallucinate missing dependencies or configuration files.
+    *   **Research First:** Use `linkup`/`brave` to search for **Latest Express Security Patches (Q4 2025)** and **EJS/Tailwind (if applicable) performance benchmarks**.
+    *   **Validation:** Use `docfork` to verify all **`package.json` dependency signatures** against known vulnerabilities.
+    *   **Reasoning:** Engage `clear-thought-two` to architect load-balancing or container orchestration patterns *before* modifying Dockerfiles.
 
-### 4. Verification & Testing Commands
-*   **Linting/Formatting (Biome Standard Applied):**
-    bash
-    npm run lint
-    npm run format
-    
-*   **Unit Testing (Vitest/Jest Equivalent for Node):** Focus on service layer logic isolation.
-    bash
-    npm test:unit
-    
-*   **Integration Testing (Supertest/Playwright):** Verify full request/response cycles.
-    bash
-    npm test:integration
-    
-*   **Container Build Verification:**
-    bash
-    docker compose build --no-cache
-    
+### 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
+*   **PRIMARY SCENARIO: WEB / API (NodeJS/Express)**
+    *   **Stack:** **Node.js 22+ (LTS)**, **Express.js 5.x** (Mandatory adherence to Express 5 best practices), **TypeScript (Strict)** for core service logic (even if EJS templating is used on the surface), **Biome** (for unified linting/formatting speed), **Vitest** (for unit testing), **Playwright** (for E2E/Integration). EJS remains for server-side rendering views.
+    *   **Architecture:** Enforce a **Feature-Sliced Design (FSD)** pattern adapted for the backend (e.g., `features/`, `entities/`, `shared/`). All routes must pass through centralized middleware stacks.
+    *   **Containerization:** Docker configurations optimized for multi-stage builds, targeting minimal image sizes using Alpine/Distroless bases where possible.
+
+### 4. VERIFICATION & DEPLOYMENT COMMANDS (Node/Express)
+*   **Setup:** `npm ci` (Use `npm ci` exclusively for reproducible builds).
+*   **Lint/Format Check:** `npx @biomejs/biome check .`
+*   **Test Execution:** `npx vitest run` (Unit) & `npx playwright test` (E2E).
+*   **Container Build:** `docker build -t boilerplate .`
 
 </details>
 
-## 🧭 Project Overview
+--- 
 
-BLUF: This repository provides an optimized Express.js and EJS template designed for rapid, secure deployment of full-stack web applications.
+## 🏗️ Architectural Blueprint
 
-## 🏗️ Architecture Map (Simplified)
+This boilerplate enforces structural discipline vital for scaling beyond the initial prototype phase.
 
 ascii
-       +----------------------------------+
-       |       Client (Browser/HTTP)      |
-       +-----------------+----------------+
-                         |
-                         v
-       +-----------------+----------------+
-       |       Express Router/Controller  |
-       |   (Input Validation, Auth)       |
-       +-----------------+----------------+
-                         |
-                         v
-       +-----------------+----------------+
-       |        Application Services      |
-       |   (Business Logic - Pure JS)     |
-       +-----------------+----------------+
-                         |
-                         v
-       +-----------------+----------------+
-       |   Data Access Layer (Repositories)|
-       |   (e.g., DB Connection Abstraction)|
-       +-----------------+----------------+
-                         |
-                         v
-       +-----------------+----------------+
-       |        Persistent Storage (DB)   |
-       +----------------------------------+
-
-Views (EJS) are injected by the Controller layer based on Service outcomes.
+/Apex-NodeJS-Express-WebApp-Boilerplate
+├── .github/                   # CI/CD, Templates, Security
+├── src/
+│   ├── config/                # Environment configuration loaders (Zod validation recommended)
+│   ├── controllers/           # Request handling logic (Thin layer)
+│   ├── features/              # FSD implementation: Business Logic Modules (Core of application)
+│   ├── middleware/            # Global and specific request processing pipelines
+│   ├── models/                # Data structure definitions (e.g., Mongoose schemas, TypeScript interfaces)
+│   └── views/                 # EJS Templates (Server-Side Rendering)
+├── Dockerfile                 # Multi-stage build for production readiness
+├── package.json
+└── README.md
 
 
-## 📚 Table of Contents
+## 🧭 Development & Verification
 
-1.  [🚀 RapidStart-Express-NodeJS-WebApp-Template](#-rapidstart-express-nodejs-webapp-template)
-2.  [🤖 AI Agent Directives (Mandatory Alignment)](#-ai-agent-directives-mandatory-alignment)
-3.  [🧭 Project Overview](#-project-overview)
-4.  [🏗️ Architecture Map (Simplified)](#-architecture-map-simplified)
-5.  [📚 Table of Contents](#-table-of-contents)
-6.  [✨ Key Features](#-key-features)
-7.  [⚙️ Technology Stack](#-technology-stack)
-8.  [🛠️ Development Setup](#-development-setup)
-9.  [📜 License](#-license)
+Follow these steps immediately after cloning to establish environment parity and verify integrity.
 
-## ✨ Key Features
+1.  **Clone & Initialize:**
+    bash
+    git clone https://github.com/chirag127/Apex-NodeJS-Express-WebApp-Boilerplate.git
+    cd Apex-NodeJS-Express-WebApp-Boilerplate
+    npm ci
+    
 
-*   **Production-Grade Security:** Pre-configured `helmet` middleware and CSRF protection.
-*   **Containerized Ready:** Includes production-ready `Dockerfile` and `docker-compose.yml`.
-*   **EJS Templating:** Standardized structure for views with robust partial management.
-*   **Development Experience:** Configured for Hot Reloading/Nodemon during development.
-*   **Codespaces Optimized:** Ready for instant cloud development environments.
+2.  **Local Execution (Development Mode):**
+    bash
+    npm run dev
+    # Server typically starts on http://localhost:3000
+    
 
-## ⚙️ Technology Stack
+3.  **Integrity Verification (Linter & Tests):**
+    bash
+    # Run Biome static analysis (Linting and Formatting)
+    npm run lint
 
-| Component | Primary Technology | Version Standard |
+    # Execute Unit Tests
+    npm run test:unit
+
+    # Execute End-to-End Tests using Playwright
+    npm run test:e2e
+    
+
+### Scripts Reference Table
+
+| Script | Command | Description |
 | :--- | :--- | :--- |
-| Runtime | Node.js | LTS (v20+)
-| Web Framework | Express.js | v5+
-| Templating Engine | EJS | Latest Stable
-| Security | Helmet, csurf | Latest
-| Formatting/Linting | Biome (Enforced) | Latest
-| Testing | Vitest/Supertest | Latest
-| Deployment | Docker | Latest
+| `start` | `node dist/index.js` | Production server start (assuming compiled TS/JS output) |
+| `dev` | `npm run watch & npm run start:dev` | Development server with watch mode |
+| `build` | `npm run build:ts` | Compile TypeScript source to JavaScript |
+| `lint` | `npx @biomejs/biome check .` | Run code quality and formatting checks |
+| `test:unit` | `npx vitest run` | Run application unit tests |
 
-## 🛠️ Development Setup
+## 🏛️ Guiding Architectural Principles
 
-Follow these steps to initialize the local development environment.
+This project is architected strictly around established paradigms:
 
-### Prerequisites
-Ensure Node.js (v20+) and Docker are installed.
+*   **SOLID:** Ensures modularity and maintainability within feature modules.
+*   **DRY (Don't Repeat Yourself):** Centralized configuration and middleware layers prevent code duplication.
+*   **YAGNI (You Ain't Gonna Need It):** Features are deliberately scoped to a minimum viable architecture, avoiding premature complexity.
 
-### Initialization
-bash
-git clone https://github.com/chirag127/RapidStart-Express-NodeJS-WebApp-Template.git
-cd RapidStart-Express-NodeJS-WebApp-Template
-
-# Use uv/npm/yarn/pnpm for dependency resolution
-npm install
-
-# Initialize environment variables (create .env from .env.example)
-cp .env.example .env
-
-
-### Execution Scripts
-
-| Command | Description |
-| :--- | :--- |
-| `npm run dev` | Starts the application in development mode with hot reloading. |
-| `npm run build` | Executes necessary production bundling (if any front-end assets were present; primarily for linting/security checks here). |
-| `npm start` | Runs the optimized production build (via `node server.js`). |
-| `npm test` | Runs combined unit and integration tests. |
-| `npm run format` | Applies Biome formatting across all relevant files. |
-| `docker compose up` | Builds and runs the application within the defined container environment. |
-
-## 📜 License
-
-This project is licensed under the **CC BY-NC 4.0 License**. See the [LICENSE](LICENSE) file for details.
